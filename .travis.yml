@@ -1,10 +1,17 @@
 # This is a comment to test something
 
 sudo: required
+
 services:
   - docker
+
 before_install:
   - docker build -t alievrouw/docker-react -f Dockerfile.dev .
 
 script:
   - docker run alievrouw/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elastivbeanstalk
+  region: us-west-2
+  app: node-react
