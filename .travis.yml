@@ -13,5 +13,13 @@ script:
 
 deploy:
   provider: elastivbeanstalk
-  region: us-west-2
-  app: node-react
+  region: "us-west-2"
+  app: "docker-react"
+  env: "Docker-react-env"
+  bucket_name: "elasticbeanstalk-us-west-2-${ID}"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
